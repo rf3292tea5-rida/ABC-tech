@@ -1,0 +1,38 @@
+export const coursesData = [
+  {
+    id: '1',
+    title: 'Complete Web Development Bootcamp',
+    category: 'Frontend',
+    level: 'Beginner',
+    duration: '40 hours',
+    students: 1250,
+    description: 'Master HTML, CSS, JavaScript, and React from scratch.',
+  },
+  {
+    id: '2',
+    title: 'Data Science with Python',
+    category: 'Data',
+    level: 'Intermediate',
+    duration: '35 hours',
+    students: 890,
+    description: 'Learn Pandas, NumPy, and Machine Learning basics.',
+  },
+  {
+    id: '3',
+    title: 'AWS Cloud Practitioner',
+    category: 'Cloud',
+    level: 'Beginner',
+    duration: '20 hours',
+    students: 650,
+    description: 'Understand cloud concepts and AWS core services.',
+  },
+  {
+    id: '4',
+    title: 'Advanced React Patterns',
+    category: 'Frontend',
+    level: 'Advanced',
+    duration: '15 hours',
+    students: 420,
+    description: 'Level up your React skills with hooks, context, and performance.',
+  },
+];

@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- THEME COLORS --- */
+:root {
+  /* Light Mode (Default) */
+  --color-brand-background: #ffffff;
+  --color-brand-surface: #f8f5f0;
+  --color-brand-heading: #0b3130;
+  --color-brand-text: #646464;
+  --color-brand-border: #e2e8f0;
+}
+
+.dark {
+  /* Dark Mode */
+  --color-brand-background: #0b1111; /* Very dark teal/black */
+  --color-brand-surface: #142222;    /* Dark teal */
+  --color-brand-heading: #f8f5f0;    /* Light text */
+  --color-brand-text: #94a3b8;       /* Slate gray */
+  --color-brand-border: #2d3748;     /* Dark slate border */
+}
+
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Import v4 plugins */
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+/* Define your custom theme (Replaces tailwind.config.ts) */
+@theme {
+  --color-brand-primary: #144443;
+  --color-brand-primaryLight: #216f6e;
+  --color-brand-primaryDark: #071918;
+  --color-brand-secondary: #039397;
+  --color-brand-accent: #c8f169;
+  --color-brand-accentDark: #b5ec36;
+  --color-brand-heading: #0b3130;
+  --color-brand-text: #646464;
+  --color-brand-background: #ffffff;
+  --color-brand-surface: #f8f5f0;
+  --color-brand-border: #e2e8f0;
+
+  --font-sans: 'Poppins', sans-serif;
+  --font-heading: 'DM Sans', sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-brand-text);
+    background-color: var(--color-brand-background);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-brand-heading);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #144443;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f5f0;
+}
+
+/* --- HERO ANIMATIONS (Delayed to start after Book Intro) --- */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* These classes wait 3 seconds for the book to finish, then animate in */
+.hero-anim-1 { opacity: 0; animation: fadeInUp 0.8s ease-out 3.0s forwards; }
+.hero-anim-2 { opacity: 0; animation: fadeInUp 0.8s ease-out 3.2s forwards; }
+.hero-anim-3 { opacity: 0; animation: fadeInUp 0.8s ease-out 3.4s forwards; }
+.hero-anim-4 { opacity: 0; animation: fadeInUp 0.8s ease-out 3.6s forwards; }
+
+
+/* --- PEN WRITING EFFECT FOR HERO SECTION --- */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+.hero-handwritten {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #144443; /* Deep Teal (brand-primary) */
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #c8f169; /* The Lime Green Pen */
+  max-width: 0;
+  display: inline-block;
+  /* Smooth cursive writing animation */
+  animation: writeText 5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  animation-delay: 3.5s; /* Waits for the book intro and other elements to appear */
+}
+
+/* --- INSTANT HANDWRITING (For returning to Home page) --- */
+.hero-handwritten-instant {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #144443; /* Deep Teal */
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #c8f169; /* Lime Green Pen */
+  max-width: 0;
+  display: inline-block;
+  /* Starts writing at 0.6s, right after the title finishes sliding up! */
+  animation: writeText 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.6s forwards; 
+}
+
+@media (min-width: 768px) {
+  .hero-handwritten {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes writeText {
+  0% { 
+    max-width: 0; 
+  }
+  100% { 
+    max-width: 1000px; /* Large enough to fit the text */
+  }
+}
+
+/* --- INSTANT HERO ANIMATIONS (For returning to Home page) --- */
+.hero-anim-1-instant {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-anim-2-instant {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero-anim-3-instant {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.hero-anim-4-instant {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
